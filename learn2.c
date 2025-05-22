@@ -67,6 +67,16 @@ void inserareInMatrice(int **matrice, int linie, int coloana, int valoare)
     matrice[linie][coloana] = valoare;
 }
 
+// LINKED LIST
+
+typedef struct Nod
+{
+    int valoare;
+    struct Nod *next;
+};
+
+
+
 int main()
 {
     // VECTOR
