@@ -1,0 +1,14 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/robert/Documents/ASE/SDD/teme/learn2'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _inserareFinal, symObjAddr: 0x0, symBinAddr: 0x100003AB4, symSize: 0x74 }
+  - { offsetInCU: 0x88, offset: 0x88, size: 0x8, addend: 0x0, symName: _inserareFinal, symObjAddr: 0x0, symBinAddr: 0x100003AB4, symSize: 0x74 }
+  - { offsetInCU: 0xBA, offset: 0xBA, size: 0x8, addend: 0x0, symName: _inserareInceput, symObjAddr: 0x74, symBinAddr: 0x100003B28, symSize: 0xC8 }
+  - { offsetInCU: 0x108, offset: 0x108, size: 0x8, addend: 0x0, symName: _afisareVector, symObjAddr: 0x13C, symBinAddr: 0x100003BF0, symSize: 0x88 }
+  - { offsetInCU: 0x148, offset: 0x148, size: 0x8, addend: 0x0, symName: _creareMatriceDinamica, symObjAddr: 0x1C4, symBinAddr: 0x100003C78, symSize: 0x88 }
+  - { offsetInCU: 0x1A8, offset: 0x1A8, size: 0x8, addend: 0x0, symName: _afisareMatrice, symObjAddr: 0x24C, symBinAddr: 0x100003D00, symSize: 0xC4 }
+  - { offsetInCU: 0x220, offset: 0x220, size: 0x8, addend: 0x0, symName: _inserareInMatrice, symObjAddr: 0x310, symBinAddr: 0x100003DC4, symSize: 0x34 }
+  - { offsetInCU: 0x26E, offset: 0x26E, size: 0x8, addend: 0x0, symName: _inserareLaInceputLL, symObjAddr: 0x344, symBinAddr: 0x100003DF8, symSize: 0x70 }
+  - { offsetInCU: 0x2AE, offset: 0x2AE, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x3B4, symBinAddr: 0x100003E68, symSize: 0x100 }
+...

@@ -73,9 +73,25 @@ typedef struct Nod
 {
     int valoare;
     struct Nod *next;
-};
+} Nod;
 
+void inserareLaInceputLL(Nod **cap, int valoare)
+{
+    Nod *nodNou = (Nod *)malloc(sizeof(Nod));
+    nodNou->valoare = valoare;
+    nodNou->next = *cap;
+    *cap = nodNou;
+}
 
+void afisareLL(Nod *cap)
+{
+    while (cap)
+    {
+        printf("%d", cap->valoare);
+        cap = cap->next;
+    }
+    printf("\n");
+}
 
 int main()
 {
@@ -104,6 +120,15 @@ int main()
     inserareInMatrice(matrice, 2, 3, 2);
 
     afisareMatrice(matrice, 3, 4);
+
+    // LINEKDLIST
+
+    Nod *lista = NULL;
+    inserareLaInceputLL(&lista, 33);
+    inserareLaInceputLL(&lista, 3);
+    inserareLaInceputLL(&lista, 32);
+
+    afisareLL(lista);
 
     return 0;
 }
