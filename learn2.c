@@ -93,6 +93,20 @@ void afisareLL(Nod *cap)
     printf("\n");
 }
 
+void inserareLaFinalLL(Nod **cap, int valoare)
+{
+    Nod *nou = (Nod *)malloc(sizeof(Nod));
+    nou->valoare = valoare;
+    nou->next = NULL;
+
+    Nod *p = *cap;
+    while (p->next != NULL)
+    {
+        p = p->next;
+    }
+    p->next = nou;
+}
+
 int main()
 {
     // VECTOR
@@ -127,6 +141,7 @@ int main()
     inserareLaInceputLL(&lista, 33);
     inserareLaInceputLL(&lista, 3);
     inserareLaInceputLL(&lista, 32);
+    inserareLaFinalLL(&lista, 99);
 
     afisareLL(lista);
 
