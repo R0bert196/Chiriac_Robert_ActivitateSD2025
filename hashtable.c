@@ -34,9 +34,9 @@ void inserare(HashTable *ht, int cheie, int valoare)
 
     int index = hashFunction(cheie);
 
-    nou->next = ht->buckets[index];
-    nou->valoare = valoare;
     nou->cheie = cheie;
+    nou->valoare = valoare;
+    nou->next = ht->buckets[index];
 
     ht->buckets[index] = nou;
 }
@@ -57,6 +57,23 @@ void afisare(HashTable *ht)
     }
 }
 
+int cauta(HashTable *ht, int cheie)
+{
+    int index = hashFunction(cheie);
+
+    Nod *curent = ht->buckets[index];
+
+    while (curent != NULL)
+    {
+        if (curent->cheie == cheie)
+        {
+            return curent->valoare;
+        }
+        curent = curent->next;
+    }
+    return 0;
+}
+
 int main()
 {
     HashTable ht;
@@ -70,10 +87,14 @@ int main()
     inserare(&ht, 123, 199);
     inserare(&ht, 12123, 199);
     inserare(&ht, 1723, 199);
-    inserare(&ht, 11923, 199);
-    inserare(&ht, 11823, 199);
+    inserare(&ht, 11923, 3333);
+    inserare(&ht, 11823, 1909);
 
     afisare(&ht);
+
+    int found = cauta(&ht, 9);
+
+    printf("%d",found);
 
     return 0;
 }
