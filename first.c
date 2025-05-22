@@ -39,6 +39,24 @@ Articol citesteArticol()
     return a;
 }
 
+float calculeazaMedia(Articol a)
+{
+    float suma = 0;
+    for (int i = 0; i < a.nrProduse; i++)
+    {
+        suma += a.preturi[i];
+    }
+    return suma / a.nrProduse;
+}
+
 int main() {
+
+    Articol a = citesteArticol();
+
+    // Media preturilor
+    float media = calculeazaMedia(a);
+    printf("Media preturilor: %.2f\n", media);
+
     return 0;
 }
+
