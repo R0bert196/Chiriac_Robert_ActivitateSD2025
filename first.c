@@ -93,10 +93,13 @@ int main()
 
     printf("Introduceti noul pret: ");
     scanf("%f", &noulPret);
-    
+
     modificaPret(&a, index - 1, noulPret);
 
     afiseazaArticol(a);
+
+    free(a.denumire);
+    free(a.preturi);
 
     return 0;
 }
