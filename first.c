@@ -49,9 +49,23 @@ float calculeazaMedia(Articol a)
     return suma / a.nrProduse;
 }
 
+void afiseazaArticol(Articol a)
+{
+    printf("Cod articol: %d\n", a.cod);
+    printf("Denumire: %s\n", a.denumire);
+    printf("Numar produse: %d\n", a.nrProduse);
+    printf("Preturi:\n");
+    for (int i = 0; i < a.nrProduse; i++)
+    {
+        printf("Produs %d: %.2f\n", i + 1, a.preturi[i]);
+    }
+}
+
 int main() {
 
     Articol a = citesteArticol();
+
+    afiseazaArticol(a);
 
     // Media preturilor
     float media = calculeazaMedia(a);
