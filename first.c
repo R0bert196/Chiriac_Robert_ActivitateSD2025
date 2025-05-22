@@ -61,7 +61,21 @@ void afiseazaArticol(Articol a)
     }
 }
 
-int main() {
+void modificaPret(Articol *a, int index, float noulPret)
+{
+    if (index >= 0 && index < a->nrProduse && noulPret > 0.0)
+    {
+        a->preturi[index] = noulPret;
+        printf("Pret modificat cu success");
+    }
+    else
+    {
+        printf("Input invalid");
+    }
+}
+
+int main()
+{
 
     Articol a = citesteArticol();
 
@@ -71,6 +85,9 @@ int main() {
     float media = calculeazaMedia(a);
     printf("Media preturilor: %.2f\n", media);
 
+    modificaPret(&a, 2, 70.3);
+
+    afiseazaArticol(a);
+
     return 0;
 }
-
