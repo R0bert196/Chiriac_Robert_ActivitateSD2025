@@ -85,7 +85,16 @@ int main()
     float media = calculeazaMedia(a);
     printf("Media preturilor: %.2f\n", media);
 
-    modificaPret(&a, 2, 70.3);
+    int index;
+    float noulPret;
+
+    printf("Introduceti indexul produsului pe care doriti sa-l modificati: ");
+    scanf("%d", &index);
+
+    printf("Introduceti noul pret: ");
+    scanf("%f", &noulPret);
+    
+    modificaPret(&a, index - 1, noulPret);
 
     afiseazaArticol(a);
 
