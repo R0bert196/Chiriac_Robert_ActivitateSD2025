@@ -107,6 +107,8 @@ void inserareLaFinalLL(Nod **cap, int valoare)
     p->next = nou;
 }
 
+
+
 int main()
 {
     // VECTOR
