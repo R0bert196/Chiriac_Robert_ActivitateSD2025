@@ -32,14 +32,27 @@ void heapifyUp(Heap *h, int index)
 
     int parinte = (index - 1) / 2;
 
-    if (h->elemente[index] > h->elemente[parinte]);
-    heapifyUp(h, parinte);
+    if (h->elemente[index] > h->elemente[parinte])
+    {
+        swap(&h->elemente[index], &h->elemente[parinte]);
+        heapifyUp(h, parinte);
+    }
+}
+
+void inserare(Heap *h, int valoare)
+{
+    if (h->dimensiune == h->capacitate)
+    {
+        return;
+    }
+    h->elemente[h->dimensiune] = valoare;
+    heapifyUp(h, h->dimensiune);
+    h->dimensiune++;
 }
 
 int main()
 {
     Heap *heap = creareHeap(20);
-
 
     return 0;
 }
