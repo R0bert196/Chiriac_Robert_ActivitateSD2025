@@ -14,6 +14,24 @@ typedef struct Coada
     struct Nod *last;
 } Coada;
 
+void enqueue(Coada *c, int valoare)
+{
+    Nod *nou = (Nod *)malloc(sizeof(Nod));
+    nou->valoare = valoare;
+    nou->next = NULL;
+
+    // daca coada goala
+    if (c->last == NULL)
+    {
+        c->last = c->first = nou;
+    }
+    else
+    {
+        c->last->next = nou;
+        c->last = nou;
+    }
+}
+
 int main()
 {
     return 0;
