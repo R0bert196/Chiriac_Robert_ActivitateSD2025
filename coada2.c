@@ -32,7 +32,46 @@ void enqueue(Coada *c, int valoare)
     }
 }
 
+void afiseaza(Coada *c)
+{
+    Nod *temp = c->first;
+    while (temp != NULL)
+    {
+        printf("%d \n", temp->valoare);
+        temp = temp->next;
+    }
+}
+
+int dequeue(Coada *c)
+{
+    if (c->first == NULL)
+    {
+        return -1;
+    }
+
+    Nod *temp = c->first;
+    c->first = c->first->next;
+
+    if (c->first == NULL)
+    {
+        c->last = NULL;
+    }
+    int val = temp->valoare;
+    free(temp);
+    return val;
+}
+
 int main()
 {
+    Coada *c = malloc(sizeof(Coada));
+    c->first = NULL;
+    c->last = NULL;
+    enqueue(c, 12);
+    enqueue(c, 14);
+    enqueue(c, 13);
+    afiseaza(c);
+    int found = dequeue(c);
+    printf("%d\n", found);
+    afiseaza(c);
     return 0;
 }
