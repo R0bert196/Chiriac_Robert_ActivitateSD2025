@@ -49,7 +49,7 @@ int dequeue(Coada *coada)
     coada->inceput = coada->inceput->next;
     int val = temp->valoare;
 
-    coada->inceput = coada->inceput->next;
+    // coada->inceput = coada->inceput->next;
 
     if (coada->inceput == NULL)
         coada->sfarsit = NULL;
