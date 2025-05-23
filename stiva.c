@@ -8,6 +8,16 @@ typedef struct Nod
     struct Nod *next;
 } Nod;
 
+void push(Nod **varf, int valoare)
+{
+    Nod *nou = (Nod *)malloc(sizeof(Nod));
+    nou->valoare = valoare;
+    nou->next = *varf;
+    *varf = nou;
+}
+
+
+
 int main()
 {
     Nod *stiva = NULL;
