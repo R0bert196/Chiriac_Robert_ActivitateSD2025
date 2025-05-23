@@ -20,21 +20,42 @@ void initCoada(Coada *c)
     c->sfarsit = NULL;
 }
 
-void enquue(Coada **c, int valoare)
+void enqueue(Coada *c, int valoare)
 {
     Nod *nou = (Nod *)malloc(sizeof(Nod));
     nou->valoare = valoare;
     nou->next = NULL;
 
-    if ((*c)->sfarsit == NULL)
+    if (c->sfarsit == NULL)
     {
-        (*c)->inceput = (*c)->sfarsit = nou;
+        c->inceput = c->sfarsit = nou;
     }
     else
     {
-        (*c)->sfarsit->next = nou;
-        (*c)->sfarsit = nou;
+        c->sfarsit->next = nou;
+        c->sfarsit = nou;
     }
+}
+
+int dequeue(Coada *coada)
+{
+    if (coada->inceput == NULL)
+    {
+        return -1;
+    }
+
+    Nod *temp = coada->inceput;
+
+    coada->inceput = coada->inceput->next;
+    int val = temp->valoare;
+
+    coada->inceput = coada->inceput->next;
+    
+    if (coada->inceput == NULL)
+        coada->sfarsit = NULL;
+
+    free(temp);
+    return val;
 }
 
 int main()
