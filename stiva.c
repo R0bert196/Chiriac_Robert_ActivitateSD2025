@@ -29,8 +29,25 @@ int pop(Nod **varf)
     return val;
 }
 
+void afiseaza(Nod *varf)
+{
+    while (varf != NULL)
+    {
+        printf("%d", varf->valoare);
+        varf = varf->next;
+    }
+}
+
+
+
 int main()
 {
     Nod *stiva = NULL;
+
+    push(&stiva, 33);
+    push(&stiva, 3);
+    push(&stiva, 22);
+
+    afiseaza(stiva);
     return 0;
 }
