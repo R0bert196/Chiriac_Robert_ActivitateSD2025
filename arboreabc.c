@@ -37,10 +37,26 @@ void inserare(NodABC **radacina, int valoare)
     }
 }
 
+void afisare(NodABC *radacina)
+{
+    if (radacina != NULL)
+    {
+        afisare(radacina->stang);
+        printf("%d", radacina->valoare);
+        afisare(radacina->drept);
+    }
+}
+
 int main()
 {
     NodABC *radacina = NULL;
 
-    // inserare(&radacina, 50);
+    inserare(&radacina, 50);
+    inserare(&radacina, 30);
+    inserare(&radacina, 70);
+    inserare(&radacina, 20);
+
+    afisare(radacina);
+
     return 0;
 }
