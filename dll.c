@@ -64,6 +64,8 @@ void inserareLaFinal(NodDublu **cap, char *nume, char *adresa)
     nou->next = NULL;
 }
 
+
+
 void afisare(NodDublu *cap)
 {
     while (cap != NULL)
@@ -81,6 +83,7 @@ int main()
 
     inserareLaInceput(&cap, "Catena", "Str. Libertatii 12");
     inserareLaInceput(&cap, "Helpnet", "Str.  12");
+    inserareLaFinal(&cap, "Helpnet", "Str.  12");
 
     afisare(cap);
 
