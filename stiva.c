@@ -38,7 +38,14 @@ void afiseaza(Nod *varf)
     }
 }
 
-
+int peek(Nod *varf)
+{
+    if (varf != NULL)
+    {
+        return varf->valoare;
+    }
+    return -1;
+}
 
 int main()
 {
@@ -48,6 +55,8 @@ int main()
     push(&stiva, 3);
     push(&stiva, 22);
 
+    int pic = peek(stiva);
+    printf("%d", pic);
     afiseaza(stiva);
     return 0;
 }
