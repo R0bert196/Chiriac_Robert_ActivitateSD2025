@@ -29,7 +29,45 @@ NodABC *creareNod(char *numeF, char *adresaF)
     return nod;
 }
 
+void inserare(NodABC **radacina, char *nume, char *adresa)
+{
+    if (*radacina == NULL)
+    {
+        *radacina = creareNod(nume, adresa);
+        return;
+    }
+    if (strcmp(nume, (*radacina)->farmacie.nume) < 0)
+    {
+        inserare(&(*radacina)->stanga, nume, adresa);
+    }
+    else
+    {
+        inserare(&(*radacina)->dreapta, nume, adresa);
+    }
+}
+
+
+
+void afisare(NodABC *nod)
+{
+    if (nod != NULL)
+    {
+        afisare(nod->stanga);
+        printf("Nume farmacie: %s, adresa: %s ", nod->farmacie.nume, nod->farmacie.adresa);
+        printf("\n");
+        afisare(nod->dreapta);
+    }
+}
+
+// void citireDinFisier()
+
 int main()
 {
+    NodABC *radacina = NULL;
+
+    inserare(&radacina, "catena", "213");
+    inserare(&radacina, "helpnet", "333");
+
+    afisare(radacina);
     return 0;
 }
