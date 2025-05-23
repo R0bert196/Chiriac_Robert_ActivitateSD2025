@@ -47,6 +47,22 @@ void afisare(NodABC *radacina)
     }
 }
 
+NodABC *cautare(NodABC *radacina, int valoare)
+{
+    if (radacina == NULL || radacina->valoare == valoare)
+    {
+        return radacina;
+    }
+    if (valoare < radacina->valoare)
+    {
+        return cautare(radacina->stang, valoare);
+    }
+    if (valoare > radacina->valoare)
+    {
+        return cautare(radacina->drept, valoare);
+    }
+}
+
 int main()
 {
     NodABC *radacina = NULL;
@@ -57,6 +73,16 @@ int main()
     inserare(&radacina, 20);
 
     afisare(radacina);
+
+    NodABC *gasit = cautare(radacina, 40);
+    if (gasit != NULL)
+    {
+        printf("Valoarea %d a fost gasita.\n", gasit->valoare);
+    }
+    else
+    {
+        printf("Valoarea nu a fost gasita.\n");
+    }
 
     return 0;
 }
