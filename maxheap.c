@@ -18,8 +18,23 @@ Heap *creareHeap(int capacitate)
     return h;
 }
 
+void swap(int *a, int *b)
+{
+    int aux = *a;
+    *a = *b;
+    *b = aux;
+}
 
+void heapifyUp(Heap *h, int index)
+{
+    if (index == 0)
+        return;
 
+    int parinte = (index - 1) / 2;
+
+    if (h->elemente[index] > h->elemente[parinte]);
+    heapifyUp(h, parinte);
+}
 
 int main()
 {
