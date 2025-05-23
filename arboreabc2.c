@@ -80,6 +80,24 @@ void citireDinFisier(NodABC **radacina, const char *numeFisier)
     fclose(f);
 }
 
+Farmacie *cautaDupaNume(NodABC *radacina, char *nume)
+{
+    if (radacina == NULL)
+    {
+        return NULL;
+    }
+    int cmp = strcmp(nume, radacina->farmacie.nume);
+
+    if (cmp == 0)
+        return &radacina->farmacie;
+    if (cmp < 0)
+        return cautaDupaNume(radacina->stanga, nume);
+    if (cmp > 0)
+        return cautaDupaNume(radacina->dreapta, nume);
+
+    return NULL;
+}
+
 int main()
 {
     NodABC *radacina = NULL;
@@ -87,6 +105,10 @@ int main()
     citireDinFisier(&radacina, "farmacii.txt");
 
     printf("Farmaciile in ordine alfabetica:\n");
+    // afisare(radacina);
+
+    Farmacie *found = cautaDupaNume(radacina, "HelpNet");
+    inserare(&radacina,  strcat(found->nume, "!!!!!!!!!!"), found->adresa );
     afisare(radacina);
     return 0;
 }
