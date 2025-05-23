@@ -74,6 +74,34 @@ int cauta(HashTable *ht, int cheie)
     return 0;
 }
 
+void sterge(HashTable *ht, int cheie)
+{
+    int index = hashFunction(cheie);
+
+    Nod *curent = ht->buckets[index];
+    Nod *anterior = NULL;
+
+    while (curent != NULL)
+    {
+        if (curent->cheie == cheie)
+        {
+            // daca e primul
+            if (anterior == NULL)
+            {
+                ht->buckets[index] = curent->next;
+            }
+            else
+            {
+                anterior->next = curent->next;
+            }
+            free(curent);
+            return;
+        }
+        anterior = curent;
+        curent = curent->next;
+    }
+}
+
 int main()
 {
     HashTable ht;
@@ -94,7 +122,7 @@ int main()
 
     int found = cauta(&ht, 9);
 
-    printf("%d",found);
+    printf("%d", found);
 
     return 0;
 }
