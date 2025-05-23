@@ -46,8 +46,6 @@ void inserare(NodABC **radacina, char *nume, char *adresa)
     }
 }
 
-
-
 void afisare(NodABC *nod)
 {
     if (nod != NULL)
@@ -59,15 +57,36 @@ void afisare(NodABC *nod)
     }
 }
 
-// void citireDinFisier()
+void citireDinFisier(NodABC **radacina, const char *numeFisier)
+{
+    FILE *f = fopen(numeFisier, "r");
+    if (!f)
+    {
+        return;
+    }
+
+    char linie[256];
+    while (fgets(linie, sizeof(linie), f))
+    {
+        char *token = strtok(linie, ",");
+        char *nume = token;
+
+        token = strtok(NULL, ",");
+        char *adresa = token;
+
+        inserare(radacina, nume, adresa);
+    }
+
+    fclose(f);
+}
 
 int main()
 {
     NodABC *radacina = NULL;
 
-    inserare(&radacina, "catena", "213");
-    inserare(&radacina, "helpnet", "333");
+    citireDinFisier(&radacina, "farmacii.txt");
 
+    printf("Farmaciile in ordine alfabetica:\n");
     afisare(radacina);
     return 0;
 }
