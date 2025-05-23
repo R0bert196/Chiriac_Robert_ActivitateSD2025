@@ -16,7 +16,18 @@ void push(Nod **varf, int valoare)
     *varf = nou;
 }
 
-
+int pop(Nod **varf)
+{
+    if (*varf == NULL)
+    {
+        return -1;
+    }
+    Nod *temp = *varf;
+    *varf = temp->next;
+    int val = temp->valoare;
+    free(temp);
+    return val;
+}
 
 int main()
 {
